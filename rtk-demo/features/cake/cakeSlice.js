@@ -12,7 +12,7 @@ const cakeSlice = createSlice({
       state.numOfCakes--;
     },
     restocked: (state, action) => {
-      state.numOfCakes += action.payload;
+      state.numOfCakes += action.payload; // direct mutation here is allowed because immer is used under the hood
     },
   },
 });
