@@ -2,27 +2,30 @@ const store = require("./app/store");
 const cakeActions = require("./features/cake/cakeSlice").cakeActions;
 const icecreamActions =
   require("./features/icecream/icecreamSlice").icecreamActions;
+const fetchEmails = require("./features/email/emailSlice").fetchEmails;
 
 console.log("Initial State", store.getState());
 
 const unsubscribe = store.subscribe(() => {
-//   console.log("Updated State", store.getState());
+  console.log("Updated State", store.getState());
 });
 
-store.dispatch(cakeActions.ordered());
-store.dispatch(cakeActions.ordered());
-store.dispatch(cakeActions.ordered());
-store.dispatch(cakeActions.restocked(5));
+store.dispatch(fetchEmails())
 
-store.dispatch(icecreamActions.ordered());
-store.dispatch(icecreamActions.ordered());
-store.dispatch(icecreamActions.ordered());
-store.dispatch(icecreamActions.restocked(4));
+// store.dispatch(cakeActions.ordered());
+// store.dispatch(cakeActions.ordered());
+// store.dispatch(cakeActions.ordered());
+// store.dispatch(cakeActions.restocked(5));
 
-unsubscribe();
+// store.dispatch(icecreamActions.ordered());
+// store.dispatch(icecreamActions.ordered());
+// store.dispatch(icecreamActions.ordered());
+// store.dispatch(icecreamActions.restocked(4));
 
-store.dispatch(cakeActions.ordered());
+// unsubscribe();
 
-store.dispatch(icecreamActions.ordered());
+// store.dispatch(cakeActions.ordered());
 
-console.log("State after unsubscribe", store.getState());
+// store.dispatch(icecreamActions.ordered());
+
+// console.log("State after unsubscribe", store.getState());
